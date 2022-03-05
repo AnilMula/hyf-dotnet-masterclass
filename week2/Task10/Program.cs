@@ -1,5 +1,5 @@
 ﻿
-var now = new JupiterTime().SetTime(1,30);
+var now = new JupiterTime().SetTime(1, 30);
 Console.WriteLine(now);
 JupiterTime later = now.AddHours(1);
 Console.WriteLine(later);
@@ -10,7 +10,7 @@ public abstract class AlienTime<T>
     /// What type should be here?
     public T SetTime(int hours, int minutes)
     {
-        return Create(hours,minutes);
+        return Create(hours, minutes);
     }
     public T AddHours(int hours)
     {
@@ -20,7 +20,7 @@ public abstract class AlienTime<T>
     protected abstract T Create(int hours, int minutes);
 }
 public class JupiterTime : AlienTime<JupiterTime>
-{     
+{
     protected override JupiterTime Create(int hours, int minutes)
     {
         return new JupiterTime { Hours = hours, Minutes = minutes };
@@ -28,6 +28,6 @@ public class JupiterTime : AlienTime<JupiterTime>
 
     public override String ToString()
     {
-        return Hours+":"+Minutes;
+        return Hours + ":" + Minutes;
     }
-}    
+}
