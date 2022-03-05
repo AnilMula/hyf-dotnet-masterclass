@@ -6,9 +6,9 @@ int GetVowelCount(string input)
 {
     int count = 0;
     int inputLength = input.Length;
-    for(int i = 0; i < inputLength; i++)
+    foreach (char c in input)
     {
-        if((input[i] == 'a' )|| (input[i] == 'e' )|| (input[i] == 'i' )|| (input[i] == 'o' )|| (input[i] == 'u' ))
+        if ((c == 'a') || (c == 'e') || (c == 'i') || (c == 'o') || (c == 'u'))
         {
             ++count;
         }

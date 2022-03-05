@@ -1,5 +1,5 @@
 ﻿int[] input = new[] { 1, 2, 5, 7, 2, 3, 5, 7 };
-if(input.Length % 2 != 0)
+if (input.Length % 2 != 0)
 {
     Console.WriteLine("WARNING: the array is of odd length");
 }
@@ -12,15 +12,16 @@ else
 
 int[][] Split(int[] input)
 {
-    int[] one = new int[input.Length / 2];
-    int[] two = new int[input.Length / 2];
+    int size = input.Length / 2;
+    int[] one = new int[size];
+    int[] two = new int[size];
     int j = 0;
 
-    for( int i= 0; i < input.Length; i++)
+    for (int i = 0; i < input.Length; i++)
     {
-        if(i < input.Length/2)
+        if (i < size)
         {
-            one[i] = input[i]; 
+            one[i] = input[i];
         }
         else
         {
@@ -28,12 +29,13 @@ int[][] Split(int[] input)
             j++;
         }
     }
-    return new int[][]{one,two};
+    return new int[][] { one, two };
 }
 
 int[] AddArray(int[][] splitArray)
-{   int[] result = new int[splitArray[0].Length];
-    for(int i = 0; i < splitArray[0].Length; i++)
+{
+    int[] result = new int[splitArray[0].Length];
+    for (int i = 0; i < splitArray[0].Length; i++)
     {
         result[i] = splitArray[0][i] + splitArray[1][i];
     }
@@ -42,8 +44,8 @@ int[] AddArray(int[][] splitArray)
 
 void WriteResult(int[] result)
 {
-  for(int i = 0; i < result.Length; i++)
-  {
-      Console.WriteLine(result[i]);
-  }
+    for (int i = 0; i < result.Length; i++)
+    {
+        Console.WriteLine(result[i]);
+    }
 }
