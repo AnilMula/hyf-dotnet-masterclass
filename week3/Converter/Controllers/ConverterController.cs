@@ -21,8 +21,8 @@ public class ConverterController : ControllerBase
     }
 
     [HttpPost("convert")]
-    public List<ConversionResponse> ConvertValues([FromBody] ConversionRequest Request)
+    public List<ConversionResponse> ConvertValues([FromBody] ConversionRequest request)
     {
-        return new ConversionResponse().Convert(Request);
+        return new ConversionResponse().Convert(request);
     }
 }
