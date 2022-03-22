@@ -1,10 +1,10 @@
 namespace mealsharingNET.Services;
 using mealsharingNET.Models;
 
-public interface IMealrepository
+public interface IMealRepository
 {
-    void AddMeal(Meals meal);
-    List<Meals> ListMeals();
+    void AddMeal(Meal meal);
+    List<Meal> ListMeals();
     void FindMealById(int id);
     void DeleteMeal(int id);
 

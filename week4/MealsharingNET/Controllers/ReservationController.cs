@@ -7,22 +7,22 @@ namespace mealsharingNET.Controllers;
 [Route("reservations")]
 public class ReservationsController : ControllerBase
 {
-    private IreservationRepository _repo;
+    private IReservationRepository _repo;
 
-    public ReservationsController(IreservationRepository repo)
+    public ReservationsController(IReservationRepository repo)
     {
         _repo = repo;
     }
 
     [HttpGet("List")]
-    public List<Reservations> ListAllReservations()
+    public List<Reservation> ListAllReservations()
     {
 
         return _repo.ListReservations().ToList();
     }
 
     [HttpPost("Add")]
-    public void AddReservation([FromBody] Reservations r)
+    public void AddReservation([FromBody] Reservation r)
     {
         _repo.AddReservation(r);
     }

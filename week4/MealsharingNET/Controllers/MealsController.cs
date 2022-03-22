@@ -7,28 +7,28 @@ namespace mealsharingNET.Controllers;
 [Route("meals")]
 public class MealsController : ControllerBase
 {
-    private IMealrepository _repo;
+    private IMealRepository _repo;
 
-    public MealsController(IMealrepository repo)
+    public MealsController(IMealRepository repo)
     {
         _repo = repo;
     }
 
     [HttpGet("List")]
-    public List<Meals> ListAllMeals()
+    public List<Meal> ListAllMeals()
     {
 
         return _repo.ListMeals().ToList();
     }
 
     [HttpPost("Add")]
-    public void AddMeal([FromBody] Meals m)
+    public void AddMeal([FromBody] Meal m)
     {
         _repo.AddMeal(m);
     }
 
     [HttpDelete("Delete")]
-    public void DeleteCar(int id)
+    public void DeleteMeal(int id)
     {
         _repo.DeleteMeal(id);
     }

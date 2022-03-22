@@ -1,10 +1,10 @@
 namespace mealsharingNET.Services;
 using mealsharingNET.Models;
 
-public interface IreservationRepository
+public interface IReservationRepository
 {
-    void AddReservation(Reservations reserve);
-    List<Reservations> ListReservations();
+    void AddReservation(Reservation reserve);
+    List<Reservation> ListReservations();
     void FindReservationById(int id);
     void DeleteReservation(int id);
 

@@ -1,11 +1,11 @@
 namespace mealsharingNET.Services;
 using mealsharingNET.Models;
-public class InMemoryMealRepository : IMealrepository
+public class InMemoryMealRepository : IMealRepository
 {
-    public List<Meals> Meals { get; set; } = new List<Meals>(){
-        new Meals(){ID=1,Title="Pizza",Description="a good pizza"}
+    public List<Meal> Meals { get; set; } = new List<Meal>(){
+        new Meal(){ID=1,Title="Pizza",Description="a good pizza"}
     };
-    public void AddMeal(Meals meal)
+    public void AddMeal(Meal meal)
     {
         Meals.Add(meal);
     }
@@ -20,9 +20,13 @@ public class InMemoryMealRepository : IMealrepository
         Meals.Find(m => m.ID == id);
     }
 
-    public List<Meals> ListMeals()
+    public List<Meal> ListMeals()
     {
         return Meals;
     }
 
+    List<Meal> IMealRepository.ListMeals()
+    {
+        throw new NotImplementedException();
+    }
 }
