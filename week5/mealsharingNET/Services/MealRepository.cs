@@ -32,4 +32,17 @@ public class MealRepository : IMealRepository
         var meals = await connection.QueryAsync<Meal>("SELECT * FROM meal");
         return meals;
     }
+
+    public async Task<IEnumerable<MealReservations>> ReservedMeals(int id)
+    {
+        await using var connection = new MySqlConnection(Shared.ConnectionString);
+        var meals = await connection.QueryAsync<MealReservations>("SELECT meal.ID, Title, MaxReservations, FullName, NoOfPersons from meal inner join reservation where meal.ID = @MealId", new { MealId = id });
+        return meals;
+    }
+
+    public async Task UpdateMeal(Meal meal)
+    {
+        await using var connection = new MySqlConnection(Shared.ConnectionString);
+        await connection.ExecuteAsync("UPDATE meal SET cost = @Cost WHERE id = @ID ", meal);
+    }
 }

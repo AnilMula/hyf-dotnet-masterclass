@@ -37,4 +37,16 @@ public class MealsController : ControllerBase
     {
         await _repo.DeleteMeal(id);
     }
+
+    [HttpPut("Update")]
+    public async Task UpdateMeal([FromBody] Meal m)
+    {
+        await _repo.UpdateMeal(m);
+    }
+    [HttpGet("mealReservations")]
+    public async Task<IEnumerable<MealReservations>> ReservedMeals(int id)
+    {
+
+        return await _repo.ReservedMeals(id);
+    }
 }

@@ -7,5 +7,6 @@ public interface IReservationRepository
     Task<IEnumerable<Reservation>> ListReservations();
     Task<Reservation> FindReservationById(int id);
     Task DeleteReservation(int id);
+    Task UpdateReservation(Reservation reserve);
 
 }

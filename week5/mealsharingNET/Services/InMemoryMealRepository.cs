@@ -26,4 +26,14 @@ public class InMemoryMealRepository : IMealRepository
     {
         return await Task.FromResult(Meals);
     }
+
+    public Task<IEnumerable<MealReservations>> ReservedMeals(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task UpdateMeal(Meal meal)
+    {
+        throw new NotImplementedException();
+    }
 }

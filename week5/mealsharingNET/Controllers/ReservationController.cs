@@ -33,8 +33,13 @@ public class ReservationsController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task DeleteReservations(int id)
+    public async Task DeleteReservation(int id)
     {
         await _repo.DeleteReservation(id);
+    }
+    [HttpPut("Update")]
+    public async Task UpdateReservation([FromBody] Reservation r)
+    {
+        await _repo.UpdateReservation(r);
     }
 }

@@ -10,7 +10,7 @@ public class ReservationRepository : IReservationRepository
     {
 
         await using var connection = new MySqlConnection(Shared.ConnectionString);
-        var reserveId = await connection.ExecuteAsync("INSERT INTO Reservation VALUES (@ID, @MealID, @Name, @Mobile, @Email, @ReserveDate,@NoOfPersons)", reserve);
+        var reserveId = await connection.ExecuteAsync("INSERT INTO Reservation VALUES (@ID, @MealID, @FullName, @Mobile, @Email, @ReserveDate,@NoOfPersons)", reserve);
     }
     public async Task DeleteReservation(int id)
     {
@@ -29,5 +29,11 @@ public class ReservationRepository : IReservationRepository
         await using var connection = new MySqlConnection(Shared.ConnectionString);
         var reservations = await connection.QueryAsync<Reservation>("SELECT * FROM Reservation");
         return reservations;
+    }
+
+    public async Task UpdateReservation(Reservation reserve)
+    {
+        await using var connection = new MySqlConnection(Shared.ConnectionString);
+        await connection.ExecuteAsync("UPDATE Reservation SET noOfPersons = @NoOfPersons WHERE id = @ID ", reserve);
     }
 }
